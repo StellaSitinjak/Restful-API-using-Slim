@@ -1,7 +1,7 @@
 # Restful-API-using-Slim
 Library Restful API using Slim framework made for PPW college project
 
------------ HOW TO RUN ------------
+## Instruction
 Install all the dependencies.
 ```
 composer install
