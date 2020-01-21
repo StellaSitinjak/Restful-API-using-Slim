@@ -1,0 +1,43 @@
+<div class="container">
+    <h1 class="text-center">Daftar Anggota</h1>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Alamat</th>
+                        <th>No. Telepon</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if members|length > 0 %}
+                    {% for member in members %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ member.id }}</td>
+                        <td>{{ member.nama }}</td>
+                        <td>{{ member.alamat }}</td>
+                        <td>{{ member.no_telepon }}</td>
+                        <td><a href="/anggota/remove/{{ member.id }}">Hapus</a></td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="6"><i>Tidak ada</i></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1 mt-2">
+            <div class="text-right">
+                <a href="/anggota/signup" class="btn btn-sm btn-success">Tambah Anggota</a>
+            </div>
+        </div>
+    </div>
+</div>

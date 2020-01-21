@@ -1,0 +1,44 @@
+<div class="container">
+    <h1 class="text-center">Daftar Pengembalian Buku</h1>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>ID Transaksi</th>
+                        <th>ID Anggota</th>
+                        <th>Kode Buku</th>
+                        <th>Jumlah Buku</th>
+                        <th>Tanggal Transaksi</th>
+                        <th>Tanggal Kembali</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if transactions|length > 0 %}
+                    {% for transaction in transactions %}
+                    {% if transaction.kode_buku != "0" %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ transaction.id }}</td>
+                        <td>{{ transaction.id_anggota }}</td>
+                        <td>{{ transaction.kode_buku }}</td>
+                        <td>{{ transaction.jumlah_buku }}</td>
+                        <td>{{ transaction.tanggal_transaksi }}</td>
+                        <td>{{ transaction.tanggal_kembali }}</td>
+                        {% if transaction.tanggal_kembali == NULL %}
+                        <td><a href="/transaksi/return/{{ transaction.id }}">Kembalikan</a></td>
+                        {% endif %}
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="6"><i>Tidak ada</i></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

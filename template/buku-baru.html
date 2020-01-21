@@ -1,0 +1,58 @@
+<div class="container" style="margin-top:20px">
+    <h1 class="text-center">Pendaftaran Buku Baru</h1>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <form method="POST">
+                <div class="row mt-4">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="kode-buku"><b>Kode Buku</b></label>
+                            <input type="text" id="kode-buku" name="kode-buku" class="form-control"  maxlength="8" minlength="8">
+                        </div>
+                        <div class="form-group">
+                            <label for="nama-buku"><b>Judul Buku</b></label>
+                            <input type="text" id="nama-buku" name="nama-buku" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="jenis-buku"><b>Jenis Buku</b></label>
+                            <select name="jenis-buku" class="form-control" id="jenis-buku">
+                                <option value="Jurnal" selected>Jurnal</option>
+                                <option value="Skripsi">Skripsi</option>
+                                <option value="Pendidikan">Pendidikan</option>
+                                <option value="Majalah">Majalah</option>
+                                <option value="Koran">Koran</option>
+                                <option value="Komik">Komik</option>
+                                <option value="Novel">Novel</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 border-left">
+                        <div class="form-group">
+                            <label for="stok"><b>Stok Buku</b></label>
+                            <select name="stok" class="form-control" id="stok">
+                                {% for i in 1..20 %}
+                                <option value="{{ i }}">{{ i }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="isbn"><b>No. ISBN</b></label>
+                            <input type="text" id="isbn" name="isbn" class="form-control" value="" maxlength="10" minlength="10">
+                        </div>
+                        <div class="form-group">
+                            <label for="nama-penerbit"><b>Nama Penerbit</b></label>
+                            <input type="text" id="nama-penerbit" name="nama-penerbit" class="form-control" value="">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 offset-md-8">
+                        <input class="btn btn-primary btn-block" type="submit" value="Simpan">
+                    </div>
+                </div>
+                <input type="hidden" name="action" value="Simpan">
+            </form>
+        </div>
+    </div>
+</div>

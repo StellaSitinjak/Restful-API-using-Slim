@@ -1,0 +1,45 @@
+<div class="container">
+    <h1 class="text-center">Daftar Pustakawan</h1>
+    <div class="row">
+        <div class="col-md-10 offset-md-1">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>ID</th>
+                        <th>Nama</th>
+                        <th>Jabatan</th>
+                        <th>Alamat</th>
+                        <th>No. Telepon</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if workers|length > 0 %}
+                    {% for worker in workers %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ worker.id }}</td>
+                        <td>{{ worker.nama }}</td>
+                        <td>{{ worker.jabatan }}</td>
+                        <td>{{ worker.alamat }}</td>
+                        <td>{{ worker.no_telepon }}</td>
+                        <td><a href="/pustakawan/remove/{{ worker.id }}">Hapus</a></td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="6"><i>Tidak ada</i></td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 offset-md-1 mt-2">
+            <div class="text-right">
+                <a href="/pustakawan/signup" class="btn btn-sm btn-success">Tambah Pustakawan</a>
+            </div>
+        </div>
+    </div>
+</div>
